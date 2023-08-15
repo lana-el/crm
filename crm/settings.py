@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-#^kelejyp(dk3a243l_oeorl(nj(cegv*2-4yot$491bq9vf_o
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['lana-crm-2b4c4a66be29.herokuapp.com', '127.0.0.1:8000']
+ALLOWED_HOSTS = ['ltnlan.pythonanywhere.com']
 
 
 # Application definition
