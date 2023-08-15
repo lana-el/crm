@@ -1,0 +1,59 @@
+{%load static%}
+
+
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+
+{% block content%}
+
+    <div class="main">
+
+        <h1>Sign up</h1>
+        <div class="container">
+            <div class="sign-up-content">
+                <form method="POST" class="signup-form">
+                    <h2 class="form-title">Sign up</h2>
+                    
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="form-textbox">
+                        <label for="name">{{field.label}}</label>
+                        {{field}}
+                    </div>
+                        
+                    {% endfor %}
+                    <br>
+                    <div class="form-textbox">
+                        <input type="submit" name="submit" id="submit" class="submit" value="Create account" />
+                    </div>
+                </form>
+                {% for field in form %}
+                    {% if field.errors %}
+                        <div class="alert-warning">
+                            <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                            {{ field.errors|join:", " }}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                <p class="loginhere">
+                    Already have an account ?<a href="{% url 'login' %}" class="loginhere-link"> Log in</a>
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+
+{% endblock %}
+
+
+<!-- <form method="POST" action="">
+    {% csrf_token %}
+    {% for field in form %}
+        {{field.label}}
+        {{field}}
+    {% endfor %}
+
+    <input type="submit" name="Create User">
+
+</form> -->
